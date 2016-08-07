@@ -19,4 +19,8 @@ urlpatterns = [
 ]
 
 if StrictVersion(get_version()) <= StrictVersion('1.8'):
+	try:
+		from django.conf.urls import patterns
+	except ImportError:
+		from django.conf.urls.defaults import patterns
 	urlpatterns = patterns('', *urlpatterns)
