@@ -1,3 +1,5 @@
+from django import get_version
+
 try:
 	from django.conf.urls import patterns, include, url
 except ImportError:
@@ -5,6 +7,7 @@ except ImportError:
 
 from .views import SwaggerView, ResourcesView, SchemaView
 
+if StrictVersion(__version__) >= StrictVersion('1.9.7')
 urlpatterns = patterns('',
     url(r'^$', SwaggerView.as_view(), name='index'),
     url(r'^resources/$', ResourcesView.as_view(), name='resources'),
